@@ -1,0 +1,149 @@
+{
+    "name": "chamilo/chamilo-lms",
+    "description": "E-learning and collaboration software",
+    "type": "project",
+    "homepage": "http://www.chamilo.org",
+    "license": "GPL-3.0",
+    "support": {
+        "forum": "http://www.chamilo.org/forum",
+        "irc": "irc://irc.freenode.org/chamilo",
+        "source": "https://github.com/chamilo/chamilo-lms",
+        "docs": "https://github.com/chamilo/docs",
+        "issues": "https://support.chamilo.org/projects/chamilo-18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chamilo\\": "src/Chamilo/",
+            "Application\\": "app/"
+        },
+        "classmap": [
+            "main/auth",
+            "main/admin",
+            "main/cron/lang",
+            "main/course_description",
+            "main/dropbox",
+            "main/exercise",
+            "main/gradebook/lib",
+            "main/lp",
+            "main/inc/lib",
+            "plugin",
+            "main/install",
+            "main/survey",
+            "main/inc/lib/hook"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/ywarnier/iCalcreator"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "ext-intl": "*",
+        "ext-gd": "*",
+        "ext-curl": "*",
+        "ext-zlib": "*",
+        "ext-zip": "*",
+        "ext-xml": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+
+        "twig/twig": "1.*",
+        "twig/extensions": "~1.0",
+        "doctrine/orm": "~2.4",
+        "doctrine/dbal": "~2.4",
+
+        "doctrine/migrations": "~1.0@dev",
+        "symfony/doctrine-bridge": "~2.8",
+        "symfony/validator": "2.6.4",
+        "symfony/filesystem": "~2.8",
+        "symfony/security": "~2.8",
+        "doctrine/data-fixtures": "~1.0@dev",
+
+        "knplabs/gaufrette": "~0.1.6",
+
+        "gedmo/doctrine-extensions": "~2.3",
+        "sonata-project/user-bundle": "~3.0",
+        "toin0u/digitalocean": "dev-master",
+
+        "michelf/php-markdown": "~1.4",
+        "sabre/vobject": "~3.1",
+
+        "emojione/emojione": "1.3.0",
+        "zendframework/zend-config": "2.5.1",
+        "zendframework/zend-feed": "2.5.1",
+        "zendframework/zend-http": "2.5.1",
+
+        "ezyang/htmlpurifier": "4.6.0",
+        "szymach/c-pchart": "1.*",
+        "aferrandini/phpqrcode": "1.0.1",
+        "mpdf/mpdf": "6.1.*",
+        "barryvdh/elfinder-builds": "2.1.0.3",
+        "jbroadway/urlify": "dev-master",
+        "monolog/monolog": "~1.0",
+        "ircmaxell/password-compat": "~1.0.4",
+        "sylius/attribute": "0.13.0",
+        "sylius/translation": "0.13.0",
+        "ramsey/array_column": "~1.1",
+        "patchwork/utf8": "~1.2",
+        "ddeboer/data-import": "@stable",
+        "phpoffice/phpexcel": "~1.8",
+        "webit/eval-math": "dev-master",
+        "clue/graph": "~0.9.0",
+        "graphp/graphviz": "~0.2.0",
+        "graphp/algorithms": "~0.8.0",
+        "sunra/php-simple-html-dom-parser": "~1.5.0",
+        "media-alchemyst/media-alchemyst": "~0.5",
+        "php-ffmpeg/php-ffmpeg": "0.5.1",
+        "imagine/imagine": "0.6.2",
+        "jeroendesloovere/vcard": "^1.2",
+        "knplabs/doctrine-behaviors": "~1.1",
+        "jimmiw/php-time-ago": "^0.4.14",
+        "phpoffice/phpword": "^0.12.1",
+        "facebook/php-sdk-v4" : "~5.0",
+        "kigkonsult/icalcreator" : "0.1.0",
+        "essence/essence": "2.6.1",
+        "pclzip/pclzip": "2.8.2"
+    },
+    "require-dev": {
+        "behat/behat": "@stable",
+        "behat/mink": "@stable",
+        "behat/mink-extension": "*",
+        "behat/mink-goutte-driver": "*",
+        "behat/mink-selenium2-driver": "*"
+    },
+    "scripts": {
+        "pre-install-cmd": [
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::deleteOldFilesFrom19x"
+        ],
+        "pre-update-cmd": [
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::deleteOldFilesFrom19x"
+        ],
+        "post-install-cmd": [
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::dumpCssFiles"
+        ],
+        "post-update-cmd": [
+            "Chamilo\\CoreBundle\\Composer\\ScriptHandler::dumpCssFiles"
+        ]
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-web-dir": "web",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "1.11.x-dev"
+        },
+        "asset-installer-paths": {
+            "bower-asset-library": "web/assets/"
+        }
+    },
+    "config": {
+      "component-dir": "web/assets"
+    }
+}

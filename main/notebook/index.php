@@ -97,7 +97,7 @@ if ($action === 'addnote') {
         NotebookManager::display_notes();
     } else {
         echo '<div class="actions">';
-        echo '<a href="index.php">'.Display::return_icon('back.png',get_lang('BackToNotesList'),'',ICON_SIZE_MEDIUM).'</a>';
+        echo '<a href="index.php">'.Display::return_icon('back.png',get_lang('BackToNotesList'),array(),ICON_SIZE_MEDIUM).'</a>';
         echo '</div>';
         $token = Security::get_token();
         $form->addElement('hidden', 'sec_token');
@@ -151,7 +151,7 @@ if ($action === 'addnote') {
     } else {
         echo '<div class="actions">';
         echo '<a href="index.php">'.
-            Display::return_icon('back.png',get_lang('BackToNotesList'),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('back.png',get_lang('BackToNotesList'),array(),ICON_SIZE_MEDIUM).'</a>';
         echo '</div>';
         $token = Security::get_token();
         $form->addElement('hidden', 'sec_token');

@@ -90,17 +90,17 @@ if ($is_allowed_to_edit) {
         api_get_self().'?'.api_get_cidreq().'&action=add_lp_category'
     );
     $actions .= Display::url(
-        Display::return_icon('new_learnpath.png', get_lang('LearnpathAddLearnpath'), '', ICON_SIZE_MEDIUM),
+        Display::return_icon('new_learnpath.png', get_lang('LearnpathAddLearnpath'), array(), ICON_SIZE_MEDIUM),
         api_get_self().'?'.api_get_cidreq().'&action=add_lp'
     );
     $actions .= Display::url(
-        Display::return_icon('import_scorm.png', get_lang('UploadScorm'), '', ICON_SIZE_MEDIUM),
+        Display::return_icon('import_scorm.png', get_lang('UploadScorm'), array(), ICON_SIZE_MEDIUM),
         '../upload/index.php?'.api_get_cidreq().'&curdirpath=/&tool='.TOOL_LEARNPATH
     );
 
     if (api_get_setting('service_ppt2lp', 'active') === 'true') {
         $actions .= Display::url(
-            Display::return_icon('import_powerpoint.png', get_lang('PowerPointConvert'), '', ICON_SIZE_MEDIUM),
+            Display::return_icon('import_powerpoint.png', get_lang('PowerPointConvert'), array(), ICON_SIZE_MEDIUM),
             '../upload/upload_ppt.php?'.api_get_cidreq().'&curdirpath=/&tool='.TOOL_LEARNPATH
         );
     }

@@ -178,7 +178,7 @@ switch ($type) {
 }
 $actionsLeft = '';
 $actionsLeft = Display::url(
-    Display::return_icon('back.png', get_lang('Back'), '', ICON_SIZE_MEDIUM),
+    Display::return_icon('back.png', get_lang('Back'), array(), ICON_SIZE_MEDIUM),
     $url
 );
 

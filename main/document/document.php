@@ -1568,13 +1568,13 @@ $actionsLeft = '';
 
 if ($curdirpath != '/' && $curdirpath != $group_properties['directory'] && !$is_certificate_mode) {
     $actionsLeft = '<a href="'.api_get_self().'?'.api_get_cidreq().'&id='.$parent_id.'">';
-    $actionsLeft .= Display::return_icon('folder_up.png', get_lang('Up'), '', ICON_SIZE_MEDIUM);
+    $actionsLeft .= Display::return_icon('folder_up.png', get_lang('Up'), array(), ICON_SIZE_MEDIUM);
     $actionsLeft .= '</a>';
 }
 
 if ($is_certificate_mode && $curdirpath != '/certificates') {
     $actionsLeft .= Display::url(
-        Display::return_icon('folder_up.png', get_lang('Up'), '', ICON_SIZE_MEDIUM),
+        Display::return_icon('folder_up.png', get_lang('Up'), array(), ICON_SIZE_MEDIUM),
         api_get_self().'?'.api_get_cidreq().'&curdirpath='.$curdirpath
     );
 }
@@ -1590,7 +1590,7 @@ if ($is_allowed_to_edit ||
     // Create new document
     if (!$is_certificate_mode) {
         $actionsLeft .= Display::url(
-            Display::return_icon('new_document.png', get_lang('CreateDoc'), '', ICON_SIZE_MEDIUM),
+            Display::return_icon('new_document.png', get_lang('CreateDoc'), array(), ICON_SIZE_MEDIUM),
             api_get_path(WEB_CODE_PATH).'document/create_document.php?'.api_get_cidreq().'&id='.$document_id
         );
 
@@ -1598,7 +1598,7 @@ if ($is_allowed_to_edit ||
         if (api_get_setting('enabled_support_svg') == 'true') {
             if (api_browser_support('svg')) {
                 $actionsLeft .= Display::url(
-                    Display::return_icon('new_draw.png', get_lang('Draw'), '', ICON_SIZE_MEDIUM),
+                    Display::return_icon('new_draw.png', get_lang('Draw'), array(), ICON_SIZE_MEDIUM),
                     api_get_path(WEB_CODE_PATH).'document/create_draw.php?'.api_get_cidreq().'&id='.$document_id
                 );
             } else {
@@ -1609,7 +1609,7 @@ if ($is_allowed_to_edit ||
         // Create new paint
         if (api_get_setting('enabled_support_pixlr') == 'true') {
             $actionsLeft .= Display::url(
-                Display::return_icon('new_paint.png', get_lang('PhotoRetouching'), '', ICON_SIZE_MEDIUM),
+                Display::return_icon('new_paint.png', get_lang('PhotoRetouching'), array(), ICON_SIZE_MEDIUM),
                 api_get_path(WEB_CODE_PATH).'document/create_paint.php?'.api_get_cidreq().'&id='.$document_id
             );
         }
@@ -1617,7 +1617,7 @@ if ($is_allowed_to_edit ||
         // Record an image clip from my webcam
         if (api_get_setting('enable_webcam_clip') == 'true') {
             $actionsLeft .= Display::url(
-                Display::return_icon('webcam.png', get_lang('WebCamClip'), '', ICON_SIZE_MEDIUM),
+                Display::return_icon('webcam.png', get_lang('WebCamClip'), array(), ICON_SIZE_MEDIUM),
                 api_get_path(WEB_CODE_PATH).'document/webcam_clip.php?'.api_get_cidreq().'&id='.$document_id
             );
         }
@@ -1625,7 +1625,7 @@ if ($is_allowed_to_edit ||
         // Record audio (nanogong)
         if (api_get_setting('enable_record_audio') === 'true') {
             $actionsLeft .= Display::url(
-                Display::return_icon('new_recording.png', get_lang('RecordMyVoice'), '', ICON_SIZE_MEDIUM),
+                Display::return_icon('new_recording.png', get_lang('RecordMyVoice'), array(), ICON_SIZE_MEDIUM),
                 api_get_path(WEB_CODE_PATH) . 'document/record_audio.php?' . api_get_cidreq() . '&id=' . $document_id
             );
         }
@@ -1633,7 +1633,7 @@ if ($is_allowed_to_edit ||
         // Create new audio from text
         if (api_get_setting('enabled_text2audio') == 'true') {
             $actionsLeft .= Display::url(
-                Display::return_icon('new_sound.png', get_lang('CreateAudio'), '', ICON_SIZE_MEDIUM),
+                Display::return_icon('new_sound.png', get_lang('CreateAudio'), array(), ICON_SIZE_MEDIUM),
                 api_get_path(WEB_CODE_PATH).'document/create_audio.php?'.api_get_cidreq().'&id='.$document_id
             );
         }
@@ -1642,19 +1642,19 @@ if ($is_allowed_to_edit ||
     // Create new certificate
     if ($is_certificate_mode) {
         $actionsLeft .= Display::url(
-            Display::return_icon('new_certificate.png', get_lang('CreateCertificate'), '', ICON_SIZE_MEDIUM),
+            Display::return_icon('new_certificate.png', get_lang('CreateCertificate'), array(), ICON_SIZE_MEDIUM),
             api_get_path(WEB_CODE_PATH).'document/create_document.php?'.api_get_cidreq().'&id='.$document_id.'&certificate=true&selectcat='.$selectcat
         );
     }
     // File upload link
     if ($is_certificate_mode) {
         $actionsLeft .= Display::url(
-            Display::return_icon('upload_certificate.png', get_lang('UploadCertificate'), '', ICON_SIZE_MEDIUM),
+            Display::return_icon('upload_certificate.png', get_lang('UploadCertificate'), array(), ICON_SIZE_MEDIUM),
             api_get_path(WEB_CODE_PATH).'document/upload.php?'.api_get_cidreq().'&id='.$current_folder_id.'&certificate=true'
         );
     } else {
         $actionsLeft .= Display::url(
-            Display::return_icon('upload_file.png', get_lang('UplUploadDocument'), '', ICON_SIZE_MEDIUM),
+            Display::return_icon('upload_file.png', get_lang('UplUploadDocument'), array(), ICON_SIZE_MEDIUM),
             api_get_path(WEB_CODE_PATH).'document/upload.php?'.api_get_cidreq().'&id='.$current_folder_id
         );
     }
@@ -1665,7 +1665,7 @@ if ($is_allowed_to_edit ||
     if ($capturePluginInstalled) {
         $actionsLeft .= '<span id="appletplace"></span>';
         $actionsLeft .= Display::url(
-            Display::return_icon('capture.png', get_lang('CatchScreenCasts'), '', ICON_SIZE_MEDIUM),
+            Display::return_icon('capture.png', get_lang('CatchScreenCasts'), array(), ICON_SIZE_MEDIUM),
             '#',
             array('id' => 'jcapture')
         );
@@ -1674,7 +1674,7 @@ if ($is_allowed_to_edit ||
     // Create directory
     if (!$is_certificate_mode) {
         $actionsLeft .= Display::url(
-            Display::return_icon('new_folder.png', get_lang('CreateDir'), '', ICON_SIZE_MEDIUM),
+            Display::return_icon('new_folder.png', get_lang('CreateDir'), array(), ICON_SIZE_MEDIUM),
             api_get_path(WEB_CODE_PATH).'document/document.php?'.api_get_cidreq().'&id='.$document_id.'&createdir=1'
         );
     }
@@ -1683,14 +1683,14 @@ if ($is_allowed_to_edit ||
 require 'document_slideshow.inc.php';
 if ($image_present && !isset($_GET['keyword'])) {
     $actionsLeft .= Display::url(
-        Display::return_icon('slideshow.png', get_lang('ViewSlideshow'), '', ICON_SIZE_MEDIUM),
+        Display::return_icon('slideshow.png', get_lang('ViewSlideshow'), array(), ICON_SIZE_MEDIUM),
         api_get_path(WEB_CODE_PATH).'document/slideshow.php?'.api_get_cidreq().'&curdirpath='.$curdirpathurl
     );
 }
 
 if (api_is_allowed_to_edit(null, true)) {
     $actionsLeft .= Display::url(
-        Display::return_icon('percentage.png', get_lang('DocumentQuota'), '', ICON_SIZE_MEDIUM),
+        Display::return_icon('percentage.png', get_lang('DocumentQuota'), array(), ICON_SIZE_MEDIUM),
         api_get_path(WEB_CODE_PATH).'document/document_quota.php?'.api_get_cidreq()
     );
 }
@@ -1888,7 +1888,7 @@ if (!is_null($documentAndFolders)) {
                 Display::return_icon(
                     'save_pack.png',
                     get_lang('Save').' (ZIP)',
-                    '',
+                    array(),
                     ICON_SIZE_MEDIUM
                 ),
                 api_get_path(WEB_CODE_PATH).'document/document.php?'.api_get_cidreq().'&action=downloadfolder&id='.$document_id

@@ -311,12 +311,12 @@ Display::display_header($tool_name);
 $actionsLeft = '';
 if ($userStatus != STUDENT_BOSS) {
     $actionsLeft = Display::url(
-        Display::return_icon('course-add.png', get_lang('AssignCourses'), null, ICON_SIZE_MEDIUM),
+        Display::return_icon('course-add.png', get_lang('AssignCourses'), array(), ICON_SIZE_MEDIUM),
         "dashboard_add_courses_to_user.php?user=$user_id"
     );
 
     $actionsLeft .= Display::url(
-        Display::return_icon('session-add.png', get_lang('AssignSessions'), null, ICON_SIZE_MEDIUM),
+        Display::return_icon('session-add.png', get_lang('AssignSessions'), array(), ICON_SIZE_MEDIUM),
         "dashboard_add_sessions_to_user.php?user=$user_id"
     );
 }

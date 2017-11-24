@@ -182,7 +182,7 @@ if (!empty($_GET['lp_id']) || !empty($_POST['lp_id'])) {
         . Display::return_icon(
             'back.png',
             get_lang("BackTo") . ' ' . get_lang("LearningPaths"),
-            '',
+            array(),
             ICON_SIZE_MEDIUM
         )
         . "</a>";
@@ -196,7 +196,7 @@ if (api_is_allowed_to_edit(false, true)) {
         . api_get_self() . '?' . api_get_cidreq()
         . '&action=add&content=forumcategory&lp_id=' . $lp_id . '"> ' .
         Display::return_icon(
-            'new_folder.png', get_lang('AddForumCategory'), '', ICON_SIZE_MEDIUM
+            'new_folder.png', get_lang('AddForumCategory'), array(), ICON_SIZE_MEDIUM
         )
         . '</a>';
 
@@ -206,7 +206,7 @@ if (api_is_allowed_to_edit(false, true)) {
             Display::return_icon(
                 'new_forum.png',
                 get_lang('AddForum'),
-                '',
+                array(),
                 ICON_SIZE_MEDIUM
             ).'</a>';
     }
@@ -420,14 +420,14 @@ if (is_array($forumCategories)) {
                                 $forum_image = Display::return_icon(
                                     'forum_group.png',
                                     get_lang('GroupForum'),
-                                    null,
+                                    array(),
                                     ICON_SIZE_LARGE
                                 );
                             } else {
                                 $forum_image = Display::return_icon(
                                     'forum.png',
                                     get_lang('Forum'),
-                                    null,
+                                    array(),
                                     ICON_SIZE_LARGE
                                 );
                             }
@@ -478,7 +478,7 @@ if (is_array($forumCategories)) {
                         $iconForum = Display::return_icon(
                             'forum_yellow.png',
                             get_lang($forumCategory['cat_title']),
-                            null,
+                            array(),
                             ICON_SIZE_MEDIUM
                         );
 
@@ -520,7 +520,7 @@ if (is_array($forumCategories)) {
                                 $newPost = ' ' . Display::return_icon(
                                     'alert.png',
                                     get_lang('Forum'),
-                                    null,
+                                    array(),
                                     ICON_SIZE_SMALL
                                 );
                             } else {
@@ -531,7 +531,7 @@ if (is_array($forumCategories)) {
                                 $newPost = ' ' . Display::return_icon(
                                     'alert.png',
                                     get_lang('Forum'),
-                                    null,
+                                    array(),
                                     ICON_SIZE_SMALL
                                 );
                             } else {

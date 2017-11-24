@@ -138,7 +138,7 @@ if ($display == 'useroverview' || $display == 'sessionoverview' || $display == '
     echo '</a>';
 }
 echo '<a href="javascript: void(0);" onclick="javascript: window.print()">'.
-    Display::return_icon('printer.png', get_lang('Print'), '', ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('printer.png', get_lang('Print'), array(), ICON_SIZE_MEDIUM).'</a>';
 echo '</span>';
 
 if (!empty($session_id) &&
@@ -162,7 +162,7 @@ if (!empty($session_id) &&
     }
 } else {
 	echo Display::url(
-        Display::return_icon('stats.png', get_lang('MyStats'),'',ICON_SIZE_MEDIUM),
+        Display::return_icon('stats.png', get_lang('MyStats'),array(),ICON_SIZE_MEDIUM),
         api_get_path(WEB_CODE_PATH)."auth/my_progress.php"
     );
     echo Display::url(

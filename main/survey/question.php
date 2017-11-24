@@ -103,7 +103,7 @@ $possible_types = array(
 // Actions
 $actions = '<div class="actions">';
 $actions .= '<a href="'.api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.intval($_GET['survey_id']).'">'.
-	Display::return_icon('back.png', get_lang('BackToSurvey'),'',ICON_SIZE_MEDIUM).'</a>';
+	Display::return_icon('back.png', get_lang('BackToSurvey'),array(),ICON_SIZE_MEDIUM).'</a>';
 $actions .= '</div>';
 // Checking if it is a valid type
 if (!in_array($_GET['type'], $possible_types)) {

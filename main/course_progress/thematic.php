@@ -23,25 +23,25 @@ if (api_is_allowed_to_edit(null, true)) {
         case 'thematic_add' :
         case 'thematic_import_select' :
             echo '<a href="index.php?'.api_get_cidreq().'">'.
-                Display::return_icon('back.png',get_lang('BackTo').' '.get_lang('ThematicDetails'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('back.png',get_lang('BackTo').' '.get_lang('ThematicDetails'),array(),ICON_SIZE_MEDIUM).'</a>';
             break;
         case 'thematic_list' :
             echo '<a href="index.php?'.api_get_cidreq().'&action=thematic_add'.$url_token.'">'.
-                Display::return_icon('new_course_progress.png',get_lang('NewThematicSection'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('new_course_progress.png',get_lang('NewThematicSection'),array(),ICON_SIZE_MEDIUM).'</a>';
             break;
         case 'thematic_details' :
             echo '<a href="index.php?'.api_get_cidreq().'&action=thematic_add'.$url_token.'">'.
-                Display::return_icon('new_course_progress.png',get_lang('NewThematicSection'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('new_course_progress.png',get_lang('NewThematicSection'),array(),ICON_SIZE_MEDIUM).'</a>';
             echo '<a href="index.php?'.api_get_cidreq().'&action=thematic_import_select'.$url_token.'">'.
-                Display::return_icon('import_csv.png',get_lang('ImportThematic'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('import_csv.png',get_lang('ImportThematic'),array(),ICON_SIZE_MEDIUM).'</a>';
             echo '<a href="index.php?'.api_get_cidreq().'&action=thematic_export'.$url_token.'">'.
-                Display::return_icon('export_csv.png',get_lang('ExportThematic'),'', ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('export_csv.png',get_lang('ExportThematic'),array(), ICON_SIZE_MEDIUM).'</a>';
             echo '<a href="index.php?'.api_get_cidreq().'&action=thematic_export_pdf'.$url_token.'">'.
-                Display::return_icon('pdf.png',get_lang('ExportToPDF'),'', ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('pdf.png',get_lang('ExportToPDF'),array(), ICON_SIZE_MEDIUM).'</a>';
             break;
         default :
             echo '<a href="index.php?'.api_get_cidreq().'&action=thematic_add'.$url_token.'">'.
-                Display::return_icon('new_course_progress.png',get_lang('NewThematicSection'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('new_course_progress.png',get_lang('NewThematicSection'),array(),ICON_SIZE_MEDIUM).'</a>';
     }
     echo '</div>';
 }
@@ -120,20 +120,20 @@ if ($action == 'thematic_list') {
                 if (api_get_session_id() == 0 ) {
 
                     if ($thematic['display_order'] > 1) {
-                        $actions_first_col .= ' <a href="'.api_get_self().'?action=moveup&'.api_get_cidreq().'&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('up.png', get_lang('Up'),'',ICON_SIZE_SMALL).'</a>';
+                        $actions_first_col .= ' <a href="'.api_get_self().'?action=moveup&'.api_get_cidreq().'&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('up.png', get_lang('Up'),array(),ICON_SIZE_SMALL).'</a>';
                     } else {
-                        $actions_first_col .= ' '.Display::return_icon('up_na.png','&nbsp;','',ICON_SIZE_SMALL);
+                        $actions_first_col .= ' '.Display::return_icon('up_na.png','&nbsp;',array(),ICON_SIZE_SMALL);
                     }
                     if (isset($thematic['max_thematic_item']) && $thematic['display_order'] < $thematic['max_thematic_item']) {
-                        $actions_first_col .= ' <a href="'.api_get_self().'?action=movedown&a'.api_get_cidreq().'&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('down.png',get_lang('Down'),'',ICON_SIZE_SMALL).'</a>';
+                        $actions_first_col .= ' <a href="'.api_get_self().'?action=movedown&a'.api_get_cidreq().'&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('down.png',get_lang('Down'),array(),ICON_SIZE_SMALL).'</a>';
                     } else {
-                        $actions_first_col .= ' '.Display::return_icon('down_na.png','&nbsp;','',ICON_SIZE_SMALL);
+                        $actions_first_col .= ' '.Display::return_icon('down_na.png','&nbsp;',array(),ICON_SIZE_SMALL);
                     }
 
                 }
                 if (api_get_session_id() == $thematic['session_id']) {
-                    $actions_first_col .= '<a href="index.php?'.api_get_cidreq().'&action=thematic_edit&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('edit.png',get_lang('Edit'),'',ICON_SIZE_SMALL).'</a>';
-                    $actions_first_col .= '<a onclick="javascript:if(!confirm(\''.get_lang('AreYouSureToDelete').'\')) return false;" href="index.php?'.api_get_cidreq().'&action=thematic_delete&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('delete.png',get_lang('Delete'),'',ICON_SIZE_SMALL).'</a>';
+                    $actions_first_col .= '<a href="index.php?'.api_get_cidreq().'&action=thematic_edit&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('edit.png',get_lang('Edit'),array(),ICON_SIZE_SMALL).'</a>';
+                    $actions_first_col .= '<a onclick="javascript:if(!confirm(\''.get_lang('AreYouSureToDelete').'\')) return false;" href="index.php?'.api_get_cidreq().'&action=thematic_delete&thematic_id='.$my_thematic_id.$params.$url_token.'">'.Display::return_icon('delete.png',get_lang('Delete'),array(),ICON_SIZE_SMALL).'</a>';
                 }
 
                 $actions_first_col = Display::div($actions_first_col, array('id'=>'thematic_id_content_'.$thematic['id'], 'class'=>'thematic_tools'));
@@ -165,7 +165,7 @@ if ($action == 'thematic_list') {
             //if (api_is_allowed_to_edit(null, true) &&  api_get_session_id() == $thematic['session_id']) {
             if (api_is_allowed_to_edit(null, true)) {
                 echo '<div style="text-align:right"><a href="index.php?'.api_get_cidreq().'&action=thematic_advance_add&thematic_id='.$thematic['id'].'">'.
-                    Display::return_icon('add.png',get_lang('NewThematicAdvance'),'',ICON_SIZE_MEDIUM).'</a></div>';
+                    Display::return_icon('add.png',get_lang('NewThematicAdvance'),array(),ICON_SIZE_MEDIUM).'</a></div>';
             }
 
             //if (api_is_allowed_to_edit(null, true) &&  api_get_session_id() == $thematic['session_id']) {
@@ -184,7 +184,7 @@ if ($action == 'thematic_list') {
                             Display::return_icon(
                                 'edit.png',
                                 get_lang('EditThematicAdvance'),
-                                [],
+                                array(),
                                 ICON_SIZE_SMALL
                             ),
                             'index.php?' . api_get_cidreq() . '&' . http_build_query([
@@ -194,7 +194,7 @@ if ($action == 'thematic_list') {
                             ])
                         );
                         $edit_link  .= '<a onclick="javascript:if(!confirm(\''.get_lang('AreYouSureToDelete').'\')) return false;" href="index.php?'.api_get_cidreq().'&action=thematic_advance_delete&thematic_id='.$thematic['id'].'&thematic_advance_id='.$thematic_advance['id'].'">'.
-                            Display::return_icon('delete.png',get_lang('Delete'),'',ICON_SIZE_SMALL).'</a></center>';
+                            Display::return_icon('delete.png',get_lang('Delete'),array(),ICON_SIZE_SMALL).'</a></center>';
 
                         //Links
                         $edit_link = Display::div(

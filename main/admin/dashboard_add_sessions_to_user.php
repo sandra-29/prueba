@@ -172,9 +172,9 @@ Display::display_header($tool_name);
 // Actions
 if ($user_info['status'] != SESSIONADMIN) {
     $actionsLeft = '<a href="dashboard_add_users_to_user.php?user='.$user_id.'">' .
-        Display::return_icon('add-user.png', get_lang('AssignUsers'), null, ICON_SIZE_MEDIUM ) . '</a>';
+        Display::return_icon('add-user.png', get_lang('AssignUsers'), array(), ICON_SIZE_MEDIUM ) . '</a>';
     $actionsLeft .= '<a href="dashboard_add_courses_to_user.php?user='.$user_id.'">' .
-        Display::return_icon('course-add.png', get_lang('AssignCourses'), null, ICON_SIZE_MEDIUM) . '</a>';
+        Display::return_icon('course-add.png', get_lang('AssignCourses'), array(), ICON_SIZE_MEDIUM) . '</a>';
 }
 
 echo Display::toolbarAction('toolbar-dashboard', array($actionsLeft));

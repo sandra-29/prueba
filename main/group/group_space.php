@@ -68,7 +68,7 @@ if (!empty($_GET['selfUnReg']) &&
 
 echo '<div class="actions">';
 echo '<a href="group.php">'.
-    Display::return_icon('back.png',get_lang('BackToGroupList'),'',ICON_SIZE_MEDIUM).
+    Display::return_icon('back.png',get_lang('BackToGroupList'),array(),ICON_SIZE_MEDIUM).
     '</a>';
 
 /*
@@ -97,7 +97,7 @@ if (api_is_allowed_to_edit(false, true) ||
     GroupManager::is_tutor_of_group(api_get_user_id(), $current_group['iid'])
 ) {
     $edit_url =  '<a href="'.api_get_path(WEB_CODE_PATH).'group/settings.php?'.api_get_cidreq().'">'.
-        Display::return_icon('edit.png', get_lang('EditGroup'),'',ICON_SIZE_SMALL).'</a>';
+        Display::return_icon('edit.png', get_lang('EditGroup'),array(),ICON_SIZE_SMALL).'</a>';
 }
 
 echo Display::page_header(

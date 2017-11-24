@@ -43,7 +43,7 @@ if (api_is_allowed_to_edit()) {
     }
     echo '<div class="actions">';
     echo "<a href='".api_get_self()."?".api_get_cidreq()."&action=add'>",
-        Display::return_icon('new_blog.png', get_lang('AddBlog'),'',ICON_SIZE_MEDIUM)."</a>";
+        Display::return_icon('new_blog.png', get_lang('AddBlog'),array(),ICON_SIZE_MEDIUM)."</a>";
     echo '</div>';
 
     if (!empty($_POST['new_blog_submit']) && !empty($_POST['blog_name'])) {

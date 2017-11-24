@@ -137,7 +137,7 @@ class DashboardManager
      */
     public static function store_dashboard_plugins($plugin_paths)
     {
-        $tbl_block = Database :: get_main_table(TABLE_MAIN_BLOCK);
+        $tbl_block = Database::get_main_table(TABLE_MAIN_BLOCK);
         $affected_rows = 0;
 
         // get all plugins path inside plugin directory

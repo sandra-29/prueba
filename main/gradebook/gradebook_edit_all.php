@@ -263,7 +263,7 @@ if (!isset($_GET['exportpdf']) and !isset($_GET['export_certificate'])) {
             <?php echo Display::return_icon(
                 'back.png',
                 get_lang('FolderView'),
-                '',
+                array(),
                 ICON_SIZE_MEDIUM
             ); ?>
         </a>

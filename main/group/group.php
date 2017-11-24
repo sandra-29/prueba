@@ -184,30 +184,30 @@ $actionsLeft = '';
 
 if (api_is_allowed_to_edit(false, true)) {
     $actionsLeft .= '<a href="group_creation.php?'.api_get_cidreq().'">'.
-        Display::return_icon('add-groups.png', get_lang('NewGroupCreate'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('add-groups.png', get_lang('NewGroupCreate'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     if (api_get_setting('allow_group_categories') === 'true') {
         $actionsLeft .=  '<a href="group_category.php?'.api_get_cidreq().'&action=add_category">'.
-            Display::return_icon('new_folder.png', get_lang('AddCategory'), '', ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('new_folder.png', get_lang('AddCategory'), array(), ICON_SIZE_MEDIUM).'</a>';
     } else {
         $actionsLeft .= '<a href="group_category.php?'.api_get_cidreq().'&id=2">'.
-            Display::return_icon('settings.png', get_lang('PropModify'), '', ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('settings.png', get_lang('PropModify'), array(), ICON_SIZE_MEDIUM).'</a>';
     }
 
     $actionsLeft .= '<a href="import.php?'.api_get_cidreq().'&action=import">'.
-        Display::return_icon('import_csv.png', get_lang('Import'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('import_csv.png', get_lang('Import'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     $actionsLeft .= '<a href="group_overview.php?'.api_get_cidreq().'&action=export_all&type=csv">'.
-        Display::return_icon('export_csv.png', get_lang('ExportAsCSV'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('export_csv.png', get_lang('ExportAsCSV'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     $actionsLeft .= '<a href="group_overview.php?'.api_get_cidreq().'&action=export_all&type=xls">'.
-        Display::return_icon('export_excel.png', get_lang('ExportAsXLS'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('export_excel.png', get_lang('ExportAsXLS'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     $actionsLeft .= '<a href="group_overview.php?'.api_get_cidreq().'&action=export_pdf">'.
-        Display::return_icon('pdf.png', get_lang('ExportToPDF'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('pdf.png', get_lang('ExportToPDF'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     $actionsLeft .= '<a href="group_overview.php?'.api_get_cidreq().'">'.
-        Display::return_icon('group_summary.png', get_lang('GroupOverview'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('group_summary.png', get_lang('GroupOverview'), array(), ICON_SIZE_MEDIUM).'</a>';
 }
 
 $actionsRight = GroupManager::getSearchForm();
@@ -242,10 +242,10 @@ if (api_get_setting('allow_group_categories') === 'true') {
         $actions = null;
         if (api_is_allowed_to_edit(false, true) && !empty($categoryId)) {
             $actions .= '<a href="group_category.php?'.api_get_cidreq().'&id='.$categoryId.'" title="'.get_lang('Edit').'">'.
-                Display::return_icon('edit.png', get_lang('EditGroup'),'',ICON_SIZE_SMALL).'</a>';
+                Display::return_icon('edit.png', get_lang('EditGroup'),array(),ICON_SIZE_SMALL).'</a>';
             $actions .=
                 Display::url(
-                    Display::return_icon('delete.png', get_lang('Delete'), '', ICON_SIZE_SMALL),
+                    Display::return_icon('delete.png', get_lang('Delete'), array(), ICON_SIZE_SMALL),
                     'group.php?'.api_get_cidreq().'&action=delete_category&id='.$categoryId,
                     array(
                         'onclick' => 'javascript:if(!confirm('."'".addslashes(api_htmlentities(get_lang('ConfirmYourChoice'), ENT_QUOTES))."'".')) return false;'
@@ -253,11 +253,11 @@ if (api_get_setting('allow_group_categories') === 'true') {
                 );
             if ($index != 0) {
                 $actions .=  ' <a href="group.php?'.api_get_cidreq().'&action=swap_cat_order&id1='.$categoryId.'&id2='.$group_cats[$index -1]['id'].'">'.
-                    Display::return_icon('up.png','&nbsp;','',ICON_SIZE_SMALL).'</a>';
+                    Display::return_icon('up.png','&nbsp;',array(),ICON_SIZE_SMALL).'</a>';
             }
             if ($index != count($group_cats) - 1) {
                 $actions .= ' <a href="group.php?'.api_get_cidreq().'&action=swap_cat_order&id1='.$categoryId.'&id2='.$group_cats[$index +1]['id'].'">'.
-                    Display::return_icon('down.png','&nbsp;','',ICON_SIZE_SMALL).'</a>';
+                    Display::return_icon('down.png','&nbsp;',array(),ICON_SIZE_SMALL).'</a>';
             }
         }
 

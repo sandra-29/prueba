@@ -150,7 +150,7 @@ SurveyUtil::handle_reporting_actions($survey_data, $people_filled);
 // Actions bar
 echo '<div class="actions">';
 echo '<a href="'.api_get_path(WEB_CODE_PATH).'survey/survey.php?survey_id='.$survey_id.'">'.
-    Display::return_icon('back.png', get_lang('BackToSurvey'),'',ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('back.png', get_lang('BackToSurvey'),array(),ICON_SIZE_MEDIUM).'</a>';
 echo '</div>';
 
 // Content

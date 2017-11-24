@@ -465,7 +465,7 @@ foreach ($resultcategories as $row) {
     $url['content'] = Display::return_icon(
         $action_images[strtolower($row['category'])],
         api_ucfirst(get_lang($row['category'])),
-        '',
+        array(),
         ICON_SIZE_MEDIUM
     );
     if (strtolower($row['category']) == strtolower($_GET['category'])) {

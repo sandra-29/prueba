@@ -152,34 +152,34 @@ Display :: display_header(null);
 $documentsAddedInWork = getAllDocumentsFromWorkToString($workId, $courseInfo);
 
 $actionsLeft = '<a href="'.api_get_path(WEB_CODE_PATH).'work/work.php?'.api_get_cidreq().'">'.
-    Display::return_icon('back.png', get_lang('BackToWorksList'), '', ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('back.png', get_lang('BackToWorksList'), array(), ICON_SIZE_MEDIUM).'</a>';
 
 if (api_is_allowed_to_session_edit(false, true) && !empty($workId) && !$isDrhOfCourse) {
 
     $actionsLeft .= '<a href="'.api_get_path(WEB_CODE_PATH).'work/add_document.php?'.api_get_cidreq().'&id='.$workId.'">';
-    $actionsLeft .= Display::return_icon('new_document.png', get_lang('AddDocument'), '', ICON_SIZE_MEDIUM).'</a>';
+    $actionsLeft .= Display::return_icon('new_document.png', get_lang('AddDocument'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     $actionsLeft .=  '<a href="'.api_get_path(WEB_CODE_PATH).'work/add_user.php?'.api_get_cidreq().'&id='.$workId.'">';
-    $actionsLeft .= Display::return_icon('addworkuser.png', get_lang('AddUsers'), '', ICON_SIZE_MEDIUM).'</a>';
+    $actionsLeft .= Display::return_icon('addworkuser.png', get_lang('AddUsers'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     $actionsLeft .= '<a href="'.api_get_path(WEB_CODE_PATH).'work/work_list_all.php?'.api_get_cidreq().'&id='.$workId.'&action=export_pdf">';
-    $actionsLeft .= Display::return_icon('pdf.png', get_lang('Export'), '', ICON_SIZE_MEDIUM).'</a>';
+    $actionsLeft .= Display::return_icon('pdf.png', get_lang('Export'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     $display_output = '<a href="'.api_get_path(WEB_CODE_PATH).'work/work_missing.php?'.api_get_cidreq().'&amp;id='.$workId.'&amp;list=without">'.
-    Display::return_icon('exercice_uncheck.png', get_lang('ViewUsersWithoutTask'), '', ICON_SIZE_MEDIUM)."</a>";
+    Display::return_icon('exercice_uncheck.png', get_lang('ViewUsersWithoutTask'), array(), ICON_SIZE_MEDIUM)."</a>";
 
     $actionsLeft .= '<a href="'.api_get_path(WEB_CODE_PATH).'work/edit_work.php?'.api_get_cidreq().'&id='.$workId.'">';
-    $actionsLeft .= Display::return_icon('edit.png', get_lang('Edit'), '', ICON_SIZE_MEDIUM).'</a>';
+    $actionsLeft .= Display::return_icon('edit.png', get_lang('Edit'),array(), ICON_SIZE_MEDIUM).'</a>';
 
     $count = get_count_work($workId);
     if ($count > 0) {
         $display_output .= '<a class="btn-toolbar" href="downloadfolder.inc.php?id='.$workId.'&'.api_get_cidreq().'">'.
-            Display::return_icon('save_pack.png', get_lang('DownloadTasksPackage'), null, ICON_SIZE_MEDIUM).' '.get_lang('DownloadTasksPackage').'</a>';
+            Display::return_icon('save_pack.png', get_lang('DownloadTasksPackage'), array(), ICON_SIZE_MEDIUM).' '.get_lang('DownloadTasksPackage').'</a>';
     }
     $actionsLeft .= $display_output;
     $url = api_get_path(WEB_CODE_PATH).'work/upload_corrections.php?'.api_get_cidreq().'&id='.$workId;
     $actionsLeft .= '<a class="btn-toolbar" href="'.$url.'">'.
-        Display::return_icon('upload_package.png', get_lang('UploadCorrectionsPackage'), '', ICON_SIZE_MEDIUM) . ' ' . get_lang('UploadCorrectionsPackage') . '</a>';
+        Display::return_icon('upload_package.png', get_lang('UploadCorrectionsPackage'), array(), ICON_SIZE_MEDIUM) . ' ' . get_lang('UploadCorrectionsPackage') . '</a>';
 }
 
 echo Display::toolbarAction('toolbar-worklist', array($actionsLeft), 1);

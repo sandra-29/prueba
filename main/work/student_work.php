@@ -105,19 +105,19 @@ $workPerUser = getWorkPerUser($studentId);
 
 echo '<div class="actions">';
 echo '<a href="'.api_get_path(WEB_CODE_PATH).'work/work.php?'.api_get_cidreq().'">'.
-        Display::return_icon('back.png', get_lang('BackToWorksList'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('back.png', get_lang('BackToWorksList'), array(), ICON_SIZE_MEDIUM).'</a>';
 
 if (api_is_allowed_to_edit()) {
     echo '<a href="'.api_get_path(WEB_CODE_PATH).'work/student_work.php?action=export_to_pdf&studentId='.$studentId.'&'.api_get_cidreq().'">'.
-        Display::return_icon('pdf.png', get_lang('ExportToPDF'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('pdf.png', get_lang('ExportToPDF'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     echo '<a href="'.api_get_path(WEB_CODE_PATH).'work/student_work.php?action=download&studentId='.$studentId.'&'.api_get_cidreq().'">'.
-        Display::return_icon('save.png', get_lang('Download'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('save.png', get_lang('Download'), array(), ICON_SIZE_MEDIUM).'</a>';
 
     echo '<a
             onclick="javascript:if(!confirm(\''.get_lang('AreYouSureToDelete').'\')) return false;"
             href="'.api_get_path(WEB_CODE_PATH).'work/student_work.php?action=delete_all&studentId='.$studentId.'&'.api_get_cidreq().'">'.
-        Display::return_icon('delete.png', get_lang('DeleteAllFiles'), '', ICON_SIZE_MEDIUM).'</a>';
+        Display::return_icon('delete.png', get_lang('DeleteAllFiles'), array(), ICON_SIZE_MEDIUM).'</a>';
 }
 
 echo '</div>';

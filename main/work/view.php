@@ -117,7 +117,7 @@ if ((user_is_author($id) || $isDrhOfCourse || (api_is_allowed_to_edit() || api_i
                     Display::return_icon(
                         'save.png',
                         get_lang('Download'),
-                        null,
+                        array(),
                         ICON_SIZE_MEDIUM
                     ),
                     $work['download_url']
@@ -128,7 +128,7 @@ if ((user_is_author($id) || $isDrhOfCourse || (api_is_allowed_to_edit() || api_i
                         Display::return_icon(
                             'check-circle.png',
                             get_lang('Correction'),
-                            null,
+                            array(),
                             ICON_SIZE_MEDIUM
                         ),
                         $work['download_url'].'&correction=1'

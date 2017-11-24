@@ -961,15 +961,15 @@ class Wiki
         //assignment mode: identify page type
         $icon_assignment = null;
         if ($row['assignment']==1) {
-            $icon_assignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),'',ICON_SIZE_SMALL);
+            $icon_assignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),array(),ICON_SIZE_SMALL);
         } elseif($row['assignment']==2) {
-            $icon_assignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+            $icon_assignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
         }
 
         //task mode
         $icon_task = null;
         if (!empty($row['task'])) {
-            $icon_task=Display::return_icon('wiki_task.png', get_lang('StandardTask'),'',ICON_SIZE_SMALL);
+            $icon_task=Display::return_icon('wiki_task.png', get_lang('StandardTask'),array(),ICON_SIZE_SMALL);
         }
 
         // Show page. Show page to all users if isn't hide page. Mode assignments: if student is the author, can view
@@ -983,7 +983,7 @@ class Wiki
 
             // menu edit page
             $editLink = '<a href="index.php?'.api_get_cidreq().'&action=edit&title='.api_htmlentities(urlencode($page)).'"'.self::is_active_navigation_tab('edit').'>'.
-                Display::return_icon('edit.png', get_lang('EditThisPage'), '', ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('edit.png', get_lang('EditThisPage'), array(), ICON_SIZE_MEDIUM).'</a>';
 
             if (api_is_allowed_to_edit(false, true)) {
                 $actionsLeft .= $editLink;
@@ -1004,10 +1004,10 @@ class Wiki
             // page action: protecting (locking) the page
             if (api_is_allowed_to_edit(false,true) || api_is_platform_admin()) {
                 if (self::check_protect_page()==1) {
-                    $protect_page = Display::return_icon('lock.png', get_lang('PageLockedExtra'), '', ICON_SIZE_MEDIUM);
+                    $protect_page = Display::return_icon('lock.png', get_lang('PageLockedExtra'), array(), ICON_SIZE_MEDIUM);
                     $lock_unlock_protect='unlock';
                 } else {
-                    $protect_page = Display::return_icon('unlock.png', get_lang('PageUnlockedExtra'), '', ICON_SIZE_MEDIUM);
+                    $protect_page = Display::return_icon('unlock.png', get_lang('PageUnlockedExtra'), array(), ICON_SIZE_MEDIUM);
                     $lock_unlock_protect='lock';
                 }
             }
@@ -1022,11 +1022,11 @@ class Wiki
             //page action: visibility
             if (api_is_allowed_to_edit(false,true) || api_is_platform_admin()) {
                 if (self::check_visibility_page() == 1) {
-                    $visibility_page = Display::return_icon('visible.png', get_lang('ShowPageExtra'),'', ICON_SIZE_MEDIUM);
+                    $visibility_page = Display::return_icon('visible.png', get_lang('ShowPageExtra'),array(), ICON_SIZE_MEDIUM);
                     $lock_unlock_visibility = 'invisible';
 
                 } else {
-                    $visibility_page = Display::return_icon('invisible.png', get_lang('HidePageExtra'),'', ICON_SIZE_MEDIUM);
+                    $visibility_page = Display::return_icon('invisible.png', get_lang('HidePageExtra'),array(), ICON_SIZE_MEDIUM);
                     $lock_unlock_visibility = 'visible';
                 }
             }
@@ -1039,10 +1039,10 @@ class Wiki
             //page action: notification
             if (api_is_allowed_to_session_edit()) {
                 if (self::check_notify_page($page)==1) {
-                    $notify_page = Display::return_icon('messagebox_info.png', get_lang('NotifyByEmail'),'',ICON_SIZE_MEDIUM);
+                    $notify_page = Display::return_icon('messagebox_info.png', get_lang('NotifyByEmail'),array(),ICON_SIZE_MEDIUM);
                     $lock_unlock_notify_page = 'unlocknotify';
                 } else {
-                    $notify_page = Display::return_icon('mail.png', get_lang('CancelNotifyByEmail'),'',ICON_SIZE_MEDIUM);
+                    $notify_page = Display::return_icon('mail.png', get_lang('CancelNotifyByEmail'),array(),ICON_SIZE_MEDIUM);
                     $lock_unlock_notify_page = 'locknotify';
                 }
             }
@@ -1054,20 +1054,20 @@ class Wiki
                 ) {
                     // menu discuss page
                     $actionsRight .= '<a href="index.php?'.api_get_cidreq().'&action=discuss&title='.api_htmlentities(urlencode($page)).'" '.self::is_active_navigation_tab('discuss').'>'.
-                        Display::return_icon('discuss.png',get_lang('DiscussThisPage'),'',ICON_SIZE_MEDIUM).'</a>';
+                        Display::return_icon('discuss.png',get_lang('DiscussThisPage'),array(),ICON_SIZE_MEDIUM).'</a>';
                 }
 
                 //menu history
                 $actionsRight .= '<a href="index.php?'.api_get_cidreq().'&action=history&title='.api_htmlentities(urlencode($page)).'" '.self::is_active_navigation_tab('history').'>'.
-                    Display::return_icon('history.png',get_lang('ShowPageHistory'),'',ICON_SIZE_MEDIUM).'</a>';
+                    Display::return_icon('history.png',get_lang('ShowPageHistory'),array(),ICON_SIZE_MEDIUM).'</a>';
                 //menu linkspages
                 $actionsRight .= '<a href="index.php?'.api_get_cidreq().'action=links&title='.api_htmlentities(urlencode($page)).'" '.self::is_active_navigation_tab('links').'>'.
-                    Display::return_icon('what_link_here.png',get_lang('LinksPages'),'',ICON_SIZE_MEDIUM).'</a>';
+                    Display::return_icon('what_link_here.png',get_lang('LinksPages'),array(),ICON_SIZE_MEDIUM).'</a>';
 
                 //menu delete wikipage
                 if (api_is_allowed_to_edit(false,true) || api_is_platform_admin()) {
                     $actionsRight .= '<a href="index.php?action=delete&'.api_get_cidreq().'&title='.api_htmlentities(urlencode($page)).'"'.self::is_active_navigation_tab('delete').'>'.
-                        Display::return_icon('delete.png',get_lang('DeleteThisPage'),'',ICON_SIZE_MEDIUM).'</a>';
+                        Display::return_icon('delete.png',get_lang('DeleteThisPage'),array(),ICON_SIZE_MEDIUM).'</a>';
                 }
 
                 $actionsRight .= '<a href="index.php?'.api_get_cidreq().'&action=showpage&actionpage='.$lock_unlock_notify_page.'&title='.api_htmlentities(urlencode($page)).'">'.
@@ -1076,11 +1076,11 @@ class Wiki
                 // Page action: copy last version to doc area
                 if (api_is_allowed_to_edit(false,true) || api_is_platform_admin()) {
                     $actionsRight .= '<a href="index.php?'.api_get_cidreq().'&action=export2doc&wiki_id='.$row['id'].'">'.
-                        Display::return_icon('export_to_documents.png', get_lang('ExportToDocArea'), '', ICON_SIZE_MEDIUM).'</a>';
+                        Display::return_icon('export_to_documents.png', get_lang('ExportToDocArea'), array(), ICON_SIZE_MEDIUM).'</a>';
                 }
 
                 $actionsRight .= '<a href="index.php?'.api_get_cidreq().'&action=export_to_pdf&wiki_id='.$row['id'].'">'.
-                    Display::return_icon('pdf.png',get_lang('ExportToPDF'),'',ICON_SIZE_MEDIUM).'</a>';
+                    Display::return_icon('pdf.png',get_lang('ExportToPDF'),array(),ICON_SIZE_MEDIUM).'</a>';
 
                 $unoconv = api_get_configuration_value('unoconv.binaries');
                 if ($unoconv) {
@@ -1101,7 +1101,7 @@ class Wiki
                 </script>
                 <?php
                 $actionsRight .= Display::url(
-                    Display::return_icon('printer.png', get_lang('Print'), '', ICON_SIZE_MEDIUM),
+                    Display::return_icon('printer.png', get_lang('Print'), array(), ICON_SIZE_MEDIUM),
                     '#',
                     array('onclick' => "javascript: goprint();")
                 );
@@ -2369,9 +2369,9 @@ class Wiki
 
                 //get type assignment icon
                 if($obj->assignment==1) {
-                    $ShowAssignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==2) {
-                    $ShowAssignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==0) {
                     $ShowAssignment = Display::return_icon('px_transparent.gif');
                 }
@@ -2395,15 +2395,15 @@ class Wiki
                     $showdelete = '';
                     if (api_is_allowed_to_edit(false,true)|| api_is_platform_admin()) {
                         $showdelete=' <a href="'.api_get_self().'?'.api_get_cidreq().'&action=delete&title='.api_htmlentities(urlencode($obj->reflink)).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                            Display::return_icon('delete.png', get_lang('Delete'),'',ICON_SIZE_SMALL);
+                            Display::return_icon('delete.png', get_lang('Delete'),array(),ICON_SIZE_SMALL);
                     }
                     $row[] = '<a href="'.api_get_self().'?'.api_get_cidreq().'&action=edit&title='.api_htmlentities(urlencode($obj->reflink)).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('edit.png', get_lang('EditPage'),'',ICON_SIZE_SMALL).'</a>
+                        Display::return_icon('edit.png', get_lang('EditPage'),array(),ICON_SIZE_SMALL).'</a>
                         <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=discuss&title='.api_htmlentities(urlencode($obj->reflink)).'&session_id='.api_htmlentities($_GET['session_id']).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('discuss.png', get_lang('Discuss'),'',ICON_SIZE_SMALL).'</a>
+                        Display::return_icon('discuss.png', get_lang('Discuss'),array(),ICON_SIZE_SMALL).'</a>
                         <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=history&title='.api_htmlentities(urlencode($obj->reflink)).'&session_id='.api_htmlentities($_GET['session_id']).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('history.png', get_lang('History'),'',ICON_SIZE_SMALL).'</a> <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=links&title='.api_htmlentities(urlencode($obj->reflink)).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('what_link_here.png', get_lang('LinksPages'),'',ICON_SIZE_SMALL).'</a>'.$showdelete;
+                        Display::return_icon('history.png', get_lang('History'),array(),ICON_SIZE_SMALL).'</a> <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=links&title='.api_htmlentities(urlencode($obj->reflink)).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
+                        Display::return_icon('what_link_here.png', get_lang('LinksPages'),array(),ICON_SIZE_SMALL).'</a>'.$showdelete;
                 }
                 $rows[] = $row;
             }
@@ -3403,9 +3403,9 @@ class Wiki
         //mode assignment: previous to show  page type
         $icon_assignment = null;
         if ($row['assignment'] == 1) {
-            $icon_assignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),'',ICON_SIZE_SMALL);
+            $icon_assignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),array(),ICON_SIZE_SMALL);
         } elseif ($row['assignment'] == 2) {
-            $icon_assignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWorkExtra'),'',ICON_SIZE_SMALL);
+            $icon_assignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWorkExtra'),array(),ICON_SIZE_SMALL);
         }
 
         $countWPost = null;
@@ -3428,10 +3428,10 @@ class Wiki
                 $lock_unlock_disc = null;
                 if (api_is_allowed_to_edit(false,true) || api_is_platform_admin()) {
                     if (self::check_addlock_discuss() == 1) {
-                        $addlock_disc = Display::return_icon('unlock.png', get_lang('UnlockDiscussExtra'),'',ICON_SIZE_SMALL);
+                        $addlock_disc = Display::return_icon('unlock.png', get_lang('UnlockDiscussExtra'),array(),ICON_SIZE_SMALL);
                         $lock_unlock_disc ='unlockdisc';
                     } else {
-                        $addlock_disc = Display::return_icon('lock.png', get_lang('LockDiscussExtra'),'',ICON_SIZE_SMALL);
+                        $addlock_disc = Display::return_icon('lock.png', get_lang('LockDiscussExtra'),array(),ICON_SIZE_SMALL);
                         $lock_unlock_disc ='lockdisc';
                     }
                 }
@@ -3445,10 +3445,10 @@ class Wiki
                 if (api_is_allowed_to_edit(false, true) || api_is_platform_admin()) {
                     if (self::check_visibility_discuss()==1) {
                         /// TODO: 	Fix Mode assignments: If is hidden, show discussion to student only if student is the author
-                        $visibility_disc = Display::return_icon('visible.png', get_lang('ShowDiscussExtra'),'',ICON_SIZE_SMALL);
+                        $visibility_disc = Display::return_icon('visible.png', get_lang('ShowDiscussExtra'),array(),ICON_SIZE_SMALL);
                         $hide_show_disc = 'hidedisc';
                     } else {
-                        $visibility_disc = Display::return_icon('invisible.png', get_lang('HideDiscussExtra'),'',ICON_SIZE_SMALL);
+                        $visibility_disc = Display::return_icon('invisible.png', get_lang('HideDiscussExtra'),array(),ICON_SIZE_SMALL);
                         $hide_show_disc = 'showdisc';
                     }
                 }
@@ -3461,10 +3461,10 @@ class Wiki
                 $ratinglock_disc = null;
                 if (api_is_allowed_to_edit(false, true) || api_is_platform_admin()) {
                     if (self::check_ratinglock_discuss() == 1) {
-                        $ratinglock_disc = Display::return_icon('star.png', get_lang('UnlockRatingDiscussExtra'),'',ICON_SIZE_SMALL);
+                        $ratinglock_disc = Display::return_icon('star.png', get_lang('UnlockRatingDiscussExtra'),array(),ICON_SIZE_SMALL);
                         $lock_unlock_rating_disc = 'unlockrating';
                     } else {
-                        $ratinglock_disc = Display::return_icon('star_na.png', get_lang('LockRatingDiscussExtra'),'',ICON_SIZE_SMALL);
+                        $ratinglock_disc = Display::return_icon('star_na.png', get_lang('LockRatingDiscussExtra'),array(),ICON_SIZE_SMALL);
                         $lock_unlock_rating_disc = 'lockrating';
                     }
                 }
@@ -3475,10 +3475,10 @@ class Wiki
 
                 //discussion action: email notification
                 if (self::check_notify_discuss($page) == 1) {
-                    $notify_disc= Display::return_icon('messagebox_info.png', get_lang('NotifyDiscussByEmail'),'',ICON_SIZE_SMALL);
+                    $notify_disc= Display::return_icon('messagebox_info.png', get_lang('NotifyDiscussByEmail'),array(),ICON_SIZE_SMALL);
                     $lock_unlock_notify_disc='unlocknotifydisc';
                 } else {
-                    $notify_disc= Display::return_icon('mail.png', get_lang('CancelNotifyDiscussByEmail'),'',ICON_SIZE_SMALL);
+                    $notify_disc= Display::return_icon('mail.png', get_lang('CancelNotifyDiscussByEmail'),array(),ICON_SIZE_SMALL);
                     $lock_unlock_notify_disc='locknotifydisc';
                 }
                 echo '<span style="float:right">';
@@ -3675,7 +3675,7 @@ class Wiki
         // menu delete all wiki
         if (api_is_allowed_to_edit(false, true) || api_is_platform_admin()) {
             echo ' <a href="index.php?action=deletewiki&'.api_get_cidreq().'">'.
-                Display::return_icon('delete.png', get_lang('DeleteWiki'), '', ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('delete.png', get_lang('DeleteWiki'), array(), ICON_SIZE_MEDIUM).'</a>';
         }
         echo '</div>';
 
@@ -3706,16 +3706,16 @@ class Wiki
 
                 //get type assignment icon
                 if ($obj->assignment==1) {
-                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==2) {
-                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==0) {
                     $ShowAssignment = Display::return_icon('px_transparent.gif');
                 }
 
                 //get icon task
                 if (!empty($obj->task)) {
-                    $icon_task = Display::return_icon('wiki_task.png', get_lang('StandardTask'), '', ICON_SIZE_SMALL);
+                    $icon_task = Display::return_icon('wiki_task.png', get_lang('StandardTask'), array(), ICON_SIZE_SMALL);
                 } else {
                     $icon_task = Display::return_icon('px_transparent.gif');
                 }
@@ -3734,15 +3734,15 @@ class Wiki
                 $showdelete = '';
                 if (api_is_allowed_to_edit(false,true)|| api_is_platform_admin()) {
                     $showdelete =' <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=delete&title='.api_htmlentities(urlencode($obj->reflink)).'&session_id='.api_htmlentities($_GET['session_id']).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('delete.png', get_lang('Delete'),'',ICON_SIZE_SMALL);
+                        Display::return_icon('delete.png', get_lang('Delete'),array(),ICON_SIZE_SMALL);
                 }
                 if (api_is_allowed_to_session_edit(false,true) ) {
                     $row[] = '<a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=edit&title='.api_htmlentities(urlencode($obj->reflink)).'&session_id='.api_htmlentities($_GET['session_id']).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('edit.png', get_lang('EditPage'),'',ICON_SIZE_SMALL).'</a> <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=discuss&title='.api_htmlentities(urlencode($obj->reflink)).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('discuss.png', get_lang('Discuss'),'',ICON_SIZE_SMALL).'</a> <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=history&title='.api_htmlentities(urlencode($obj->reflink)).'&session_id='.api_htmlentities($_GET['session_id']).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('history.png', get_lang('History'),'',ICON_SIZE_SMALL).'</a>
+                        Display::return_icon('edit.png', get_lang('EditPage'),array(),ICON_SIZE_SMALL).'</a> <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=discuss&title='.api_htmlentities(urlencode($obj->reflink)).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
+                        Display::return_icon('discuss.png', get_lang('Discuss'),array(),ICON_SIZE_SMALL).'</a> <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=history&title='.api_htmlentities(urlencode($obj->reflink)).'&session_id='.api_htmlentities($_GET['session_id']).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
+                        Display::return_icon('history.png', get_lang('History'),array(),ICON_SIZE_SMALL).'</a>
                         <a href="'.api_get_self().'?cidReq='.$_course['code'].'&action=links&title='.api_htmlentities(urlencode($obj->reflink)).'&session_id='.api_htmlentities($_GET['session_id']).'&group_id='.api_htmlentities($_GET['group_id']).'">'.
-                        Display::return_icon('what_link_here.png', get_lang('LinksPages'),'',ICON_SIZE_SMALL).'</a>'.$showdelete;
+                        Display::return_icon('what_link_here.png', get_lang('LinksPages'),array(),ICON_SIZE_SMALL).'</a>'.$showdelete;
                 }
                 $rows[] = $row;
             }
@@ -3776,10 +3776,10 @@ class Wiki
 
         if (api_is_allowed_to_session_edit(false,true) ) {
             if (self::check_notify_all()==1) {
-                $notify_all= Display::return_icon('messagebox_info.png', get_lang('NotifyByEmail'),'',ICON_SIZE_SMALL).' '.get_lang('NotNotifyChanges');
+                $notify_all= Display::return_icon('messagebox_info.png', get_lang('NotifyByEmail'),array(),ICON_SIZE_SMALL).' '.get_lang('NotNotifyChanges');
                 $lock_unlock_notify_all='unlocknotifyall';
             } else {
-                $notify_all=Display::return_icon('mail.png', get_lang('CancelNotifyByEmail'),'',ICON_SIZE_SMALL).' '.get_lang('NotifyChanges');
+                $notify_all=Display::return_icon('mail.png', get_lang('CancelNotifyByEmail'),array(),ICON_SIZE_SMALL).' '.get_lang('NotifyChanges');
                 $lock_unlock_notify_all='locknotifyall';
             }
         }
@@ -3817,16 +3817,16 @@ class Wiki
 
                 //get type assignment icon
                 if ($obj->assignment==1) {
-                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==2) {
-                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==0) {
                     $ShowAssignment=Display::return_icon('px_transparent.gif');
                 }
 
                 // Get icon task
                 if (!empty($obj->task)) {
-                    $icon_task=Display::return_icon('wiki_task.png', get_lang('StandardTask'),'',ICON_SIZE_SMALL);
+                    $icon_task=Display::return_icon('wiki_task.png', get_lang('StandardTask'),array(),ICON_SIZE_SMALL);
                 } else {
                     $icon_task=Display::return_icon('px_transparent.gif');
                 }
@@ -3891,9 +3891,9 @@ class Wiki
             //get type assignment icon
             $ShowAssignment = '';
             if ($row['assignment']==1) {
-                $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),'',ICON_SIZE_SMALL);
+                $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),array(),ICON_SIZE_SMALL);
             } elseif ($row['assignment']==2) {
-                $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+                $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
             } elseif ($row['assignment']==0) {
                 $ShowAssignment=Display::return_icon('px_transparent.gif');
             }
@@ -3949,9 +3949,9 @@ class Wiki
 
                     //get type assignment icon
                     if ($obj->assignment == 1) {
-                        $ShowAssignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'), '', ICON_SIZE_SMALL);
+                        $ShowAssignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'), array(), ICON_SIZE_SMALL);
                     } elseif ($obj->assignment == 2) {
-                        $ShowAssignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWork'), '', ICON_SIZE_SMALL);
+                        $ShowAssignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWork'), array(), ICON_SIZE_SMALL);
                     } elseif ($obj->assignment == 0) {
                         $ShowAssignment = Display::return_icon('px_transparent.gif');
                     }
@@ -4103,9 +4103,9 @@ class Wiki
                 //get type assignment icon
                 $ShowAssignment = '';
                 if ($obj->assignment==1) {
-                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==2) {
-                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==0) {
                     $ShowAssignment= Display::return_icon('px_transparent.gif');
                 }
@@ -4176,9 +4176,9 @@ class Wiki
                 //get type assignment icon
                 $ShowAssignment = '';
                 if ($obj->assignment==1) {
-                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==2) {
-                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==0) {
                     $ShowAssignment= Display::return_icon('px_transparent.gif');
                 }
@@ -4532,9 +4532,9 @@ class Wiki
                 $orphaned_title=$row['title'];
                 $orphaned_visibility=$row['visibility'];
                 if ($row['assignment']==1) {
-                    $ShowAssignment=Display::return_icon('wiki_assignment.png','','',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_assignment.png','',array(),ICON_SIZE_SMALL);
                 } elseif ($row['assignment']==2) {
-                    $ShowAssignment=Display::return_icon('wiki_work.png','','',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_work.png','',array(),ICON_SIZE_SMALL);
                 } elseif ($row['assignment']==0) {
                     $ShowAssignment= Display::return_icon('px_transparent.gif');
                 }
@@ -4674,9 +4674,9 @@ class Wiki
                 //get type assignment icon
                 $ShowAssignment = '';
                 if ($obj->assignment==1) {
-                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDesc'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==2) {
-                    $ShowAssignment=$ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),'',ICON_SIZE_SMALL);
+                    $ShowAssignment=$ShowAssignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWork'),array(),ICON_SIZE_SMALL);
                 } elseif ($obj->assignment==0) {
                     $ShowAssignment = Display::return_icon('px_transparent.gif');
                 }
@@ -4727,12 +4727,12 @@ class Wiki
 
         $actionsLeft = '';
         $actionsLeft .= '<a href="index.php?action=showpage&title=index&cidReq='.$_course['id'].'&session_id='.$session_id.'&group_id='.$groupId.'">'.
-            Display::return_icon('home.png', get_lang('Home'), '', ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('home.png', get_lang('Home'), array(), ICON_SIZE_MEDIUM).'</a>';
 
         if (api_is_allowed_to_session_edit(false, true) && api_is_allowed_to_edit()) {
             // menu add page
             $actionsLeft .= '<a href="index.php?cidReq=' . $_course['id'] . '&action=addnew&session_id=' . $session_id . '&group_id=' . $groupId . '"' . self::is_active_navigation_tab('addnew').'>'
-            . Display::return_icon('add.png', get_lang('AddNew'), '', ICON_SIZE_MEDIUM) . '</a>';
+            . Display::return_icon('add.png', get_lang('AddNew'), array(), ICON_SIZE_MEDIUM) . '</a>';
         }
 
         $lock_unlock_addnew = null;
@@ -4751,11 +4751,11 @@ class Wiki
 
         // menu find
         $actionsLeft .= '<a href="index.php?cidReq='.$_course['id'].'&action=searchpages&session_id='.$session_id.'&group_id='.$groupId.'"'.self::is_active_navigation_tab('searchpages').'>'.
-            Display::return_icon('search.png', get_lang('SearchPages'), '', ICON_SIZE_MEDIUM).'</a></li>';
+            Display::return_icon('search.png', get_lang('SearchPages'), array(), ICON_SIZE_MEDIUM).'</a></li>';
 
         ///menu more
         $actionsLeft .= '<a href="index.php?action=more&amp;title='.api_htmlentities(urlencode($page)).'"'.self::is_active_navigation_tab('more').'>'.
-            Display::return_icon('stats.png', get_lang('Statistics'), '', ICON_SIZE_MEDIUM).'</a></li>';
+            Display::return_icon('stats.png', get_lang('Statistics'), array(), ICON_SIZE_MEDIUM).'</a></li>';
 
         // menu all pages
         $actionsLeft .= '<a class="btn btn-default" href="index.php?cidReq='.$_course['id'].'&action=allpages&session_id='.$session_id.'&group_id='.$groupId.'"'.self::is_active_navigation_tab('allpages').'>'.
@@ -4901,9 +4901,9 @@ class Wiki
                     Display::return_message(get_lang('EditAssignmentWarning'))
                 );
 
-                $icon_assignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),'',ICON_SIZE_SMALL);
+                $icon_assignment=Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'),array(),ICON_SIZE_SMALL);
             } elseif ($row['assignment'] == 2) {
-                $icon_assignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWorkExtra'),'',ICON_SIZE_SMALL);
+                $icon_assignment=Display::return_icon('wiki_work.png', get_lang('AssignmentWorkExtra'),array(),ICON_SIZE_SMALL);
                 if (($userId == $row['user_id'])==false) {
                     if (api_is_allowed_to_edit(false, true) || api_is_platform_admin()) {
                         $PassEdit = true;
@@ -5189,9 +5189,9 @@ class Wiki
         }
         $icon_assignment = null;
         if ($KeyAssignment == 1) {
-            $icon_assignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'), '', ICON_SIZE_SMALL);
+            $icon_assignment = Display::return_icon('wiki_assignment.png', get_lang('AssignmentDescExtra'), array(), ICON_SIZE_SMALL);
         } elseif($KeyAssignment == 2) {
-            $icon_assignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWorkExtra'), '', ICON_SIZE_SMALL);
+            $icon_assignment = Display::return_icon('wiki_work.png', get_lang('AssignmentWorkExtra'), array(), ICON_SIZE_SMALL);
         }
 
         // Second, show

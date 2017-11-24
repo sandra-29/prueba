@@ -140,7 +140,7 @@ if ($add_type == 'multiple') {
 }
 
 echo '<div class="actions">';
-echo '<a href="promotions.php">'.Display::return_icon('back.png',get_lang('Back'),'',ICON_SIZE_MEDIUM).'</a>';
+echo '<a href="promotions.php">'.Display::return_icon('back.png',get_lang('Back'),array(),ICON_SIZE_MEDIUM).'</a>';
 echo '</div>';
 ?>
 

@@ -5689,7 +5689,7 @@ class learnpath
                                     'lp_id' => $this->lp_id
                                 ]);
                                 $forumIcon = Display::url(
-                                    Display::return_icon('forum.png', get_lang('DissociateForumToLPItem'), [], ICON_SIZE_TINY),
+                                    Display::return_icon('forum.png', get_lang('DissociateForumToLPItem'), array(), ICON_SIZE_TINY),
                                     $forumIconUrl,
                                     ['class' => 'btn btn-default lp-btn-dissociate-forum']
                                 );
@@ -5700,7 +5700,7 @@ class learnpath
                                     'lp_id' => $this->lp_id
                                 ]);
                                 $forumIcon = Display::url(
-                                    Display::return_icon('forum.png', get_lang('AssociateForumToLPItem'), [], ICON_SIZE_TINY),
+                                    Display::return_icon('forum.png', get_lang('AssociateForumToLPItem'), array(), ICON_SIZE_TINY),
                                     $forumIconUrl,
                                     ['class' => "btn btn-default lp-btn-associate-forum"]
                                 );
@@ -5906,7 +5906,7 @@ class learnpath
         $actionsRight = '';
 
         $actionsLeft .= Display::url(
-            Display:: return_icon('preview_view.png', get_lang('Display'), '', ICON_SIZE_MEDIUM),
+            Display:: return_icon('preview_view.png', get_lang('Display'), array(), ICON_SIZE_MEDIUM),
             'lp_controller.php?'.api_get_cidreq().'&' . http_build_query([
                 'gradebook' => $gradebook,
                 'action' => 'view',
@@ -5915,7 +5915,7 @@ class learnpath
             ])
         );
         $actionsLeft .= Display::url(
-            Display:: return_icon('upload_audio.png', get_lang('UpdateAllAudioFragments'), '', ICON_SIZE_MEDIUM),
+            Display:: return_icon('upload_audio.png', get_lang('UpdateAllAudioFragments'), array(), ICON_SIZE_MEDIUM),
             'lp_controller.php?' . api_get_cidreq() . '&' . http_build_query([
                 'action' => 'admin_view',
                 'lp_id' => $_SESSION['oLP']->lp_id,
@@ -5925,7 +5925,7 @@ class learnpath
 
         if (!$isConfigPage) {
             $actionsLeft .= Display::url(
-                Display :: return_icon('settings.png', get_lang('CourseSettings'),'',ICON_SIZE_MEDIUM),
+                Display :: return_icon('settings.png', get_lang('CourseSettings'),array(),ICON_SIZE_MEDIUM),
                 'lp_controller.php?' . api_get_cidreq() . '&' . http_build_query([
                     'action' => 'edit',
                     'lp_id' => $_SESSION['oLP']->lp_id
@@ -5933,7 +5933,7 @@ class learnpath
             );
         } else {
             $actionsLeft .= Display::url(
-                Display::return_icon('edit.png', get_lang('Edit'), '', ICON_SIZE_MEDIUM),
+                Display::return_icon('edit.png', get_lang('Edit'), array(), ICON_SIZE_MEDIUM),
                 'lp_controller.php?' . http_build_query([
                     'action' => 'build',
                     'lp_id' => $_SESSION['oLP']->lp_id
@@ -6526,7 +6526,7 @@ class learnpath
             Display::return_icon('works.png', get_lang('Works'), array(), ICON_SIZE_BIG),
             Display::return_icon('forum.png', get_lang('Forums'), array(), ICON_SIZE_BIG),
             Display::return_icon('add_learnpath_section.png', get_lang('NewChapter'), array(), ICON_SIZE_BIG),
-            Display::return_icon('certificate.png', get_lang('Certificate'), [], ICON_SIZE_BIG),
+            Display::return_icon('certificate.png', get_lang('Certificate'), array(), ICON_SIZE_BIG),
         );
 
         echo Display::display_normal_message(get_lang('ClickOnTheLearnerViewToSeeYourLearningPath'));

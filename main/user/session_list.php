@@ -75,7 +75,7 @@ if ($allowTutors == 'true') {
 
     //With this function we can add actions to the jgrid (edit, delete, etc)
     $action_links = 'function action_formatter(cellvalue, options, rowObject) {
-         return \'&nbsp;<a href="add_users_to_session.php?page=session_list.php&id_session=\'+options.rowId+\'">'.Display::return_icon('user_subscribe_session.png',get_lang('SubscribeUsersToSession'),'',ICON_SIZE_SMALL).'</a>'.
+         return \'&nbsp;<a href="add_users_to_session.php?page=session_list.php&id_session=\'+options.rowId+\'">'.Display::return_icon('user_subscribe_session.png',get_lang('SubscribeUsersToSession'),array(),ICON_SIZE_SMALL).'</a>'.
          '\';
     }';
     ?>
@@ -138,9 +138,9 @@ if ($allowTutors == 'true') {
     <?php if (api_is_platform_admin()) {?>
         <div class="actions">
         <?php
-        echo '<a href="'.api_get_path(WEB_CODE_PATH).'session/session_add.php">'.Display::return_icon('new_session.png',get_lang('AddSession'),'',ICON_SIZE_MEDIUM).'</a>';
-        echo '<a href="'.api_get_path(WEB_CODE_PATH).'session/add_many_session_to_category.php">'.Display::return_icon('session_to_category.png',get_lang('AddSessionsInCategories'),'',ICON_SIZE_MEDIUM).'</a>';
-        echo '<a href="'.api_get_path(WEB_CODE_PATH).'session/session_category_list.php">'.Display::return_icon('folder.png',get_lang('ListSessionCategory'),'',ICON_SIZE_MEDIUM).'</a>';
+        echo '<a href="'.api_get_path(WEB_CODE_PATH).'session/session_add.php">'.Display::return_icon('new_session.png',get_lang('AddSession'),array(),ICON_SIZE_MEDIUM).'</a>';
+        echo '<a href="'.api_get_path(WEB_CODE_PATH).'session/add_many_session_to_category.php">'.Display::return_icon('session_to_category.png',get_lang('AddSessionsInCategories'),array(),ICON_SIZE_MEDIUM).'</a>';
+        echo '<a href="'.api_get_path(WEB_CODE_PATH).'session/session_category_list.php">'.Display::return_icon('folder.png',get_lang('ListSessionCategory'),array(),ICON_SIZE_MEDIUM).'</a>';
         echo '</div>';
     }
 } else {

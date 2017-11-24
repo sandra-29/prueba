@@ -78,7 +78,7 @@ Display :: display_header(null);
 
 echo '<div class="actions">';
 echo '<a href="'.api_get_path(WEB_CODE_PATH).'work/work.php?'.api_get_cidreq().'>'.
-    Display::return_icon('back.png', get_lang('BackToWorksList'),'',ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('back.png', get_lang('BackToWorksList'),array(),ICON_SIZE_MEDIUM).'</a>';
 echo '</div>';
 
 if (!empty($my_folder_data['description'])) {

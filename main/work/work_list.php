@@ -52,7 +52,7 @@ $interbreadcrumb[] = array(
 $documentsAddedInWork = getAllDocumentsFromWorkToString($workId, $courseInfo);
 
 $actionsLeft = '<a href="'.api_get_path(WEB_CODE_PATH).'work/work.php?'.api_get_cidreq().'">'.
-    Display::return_icon('back.png', get_lang('BackToWorksList'), '', ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('back.png', get_lang('BackToWorksList'), array(), ICON_SIZE_MEDIUM).'</a>';
 
 $actionsRight = '';
 if (api_is_allowed_to_session_edit(false, true) && !empty($workId) && !api_is_invitee()) {
@@ -61,7 +61,7 @@ if (api_is_allowed_to_session_edit(false, true) && !empty($workId) && !api_is_in
         Display::return_icon(
             'upload_file.png',
             get_lang('UploadMyAssignment'),
-            null,
+            array(),
             ICON_SIZE_MEDIUM
         ) . get_lang('UploadMyAssignment'),
         $url,

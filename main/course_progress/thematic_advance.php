@@ -226,10 +226,10 @@ if ($action === 'thematic_advance_add' || $action === 'thematic_advance_edit') {
     // thematic advance list
     echo '<div class="actions">';
     echo '<a href="'.api_get_self().'?'.api_get_cidreq().'&amp;action=thematic_details">'.
-            Display::return_icon('back.png', get_lang("BackTo"),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('back.png', get_lang("BackTo"),array(),ICON_SIZE_MEDIUM).'</a>';
     if (api_is_allowed_to_edit(false, true)) {
         echo '<a href="'.api_get_self().'?'.api_get_cidreq().'&amp;action=thematic_advance_add&amp;thematic_id='.$thematic_id.'"> '.
-            Display::return_icon('add.png', get_lang('NewThematicAdvance'),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('add.png', get_lang('NewThematicAdvance'),array(),ICON_SIZE_MEDIUM).'</a>';
     }
     echo '</div>';
     $table = new SortableTable(

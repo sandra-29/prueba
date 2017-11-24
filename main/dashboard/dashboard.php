@@ -21,16 +21,16 @@ $link_blocks_view = $link_list_view = null;
 
 if (isset($dashboard_view) && $dashboard_view == 'list') {
 	$link_blocks_view = '<a href="'.api_get_self().'?view=blocks">'.
-		Display::return_icon('blocks.png',get_lang('DashboardBlocks'),'',ICON_SIZE_MEDIUM).'</a>';
+		Display::return_icon('blocks.png',get_lang('DashboardBlocks'),array(),ICON_SIZE_MEDIUM).'</a>';
 } else {
 	$link_list_view = '<a href="'.api_get_self().'?view=list">'.
-		Display::return_icon('edit.png',get_lang('EditBlocks'),'',ICON_SIZE_MEDIUM).'</a>';
+		Display::return_icon('edit.png',get_lang('EditBlocks'),array(),ICON_SIZE_MEDIUM).'</a>';
 }
 
 $configuration_link = null;
 if (api_is_platform_admin()) {
 	$configuration_link = '<a href="'.api_get_path(WEB_CODE_PATH).'admin/settings.php?category=Plugins">'
-	.Display::return_icon('settings.png',get_lang('ConfigureDashboardPlugin'),'',ICON_SIZE_MEDIUM).'</a>';
+	.Display::return_icon('settings.png',get_lang('ConfigureDashboardPlugin'),array(),ICON_SIZE_MEDIUM).'</a>';
 }
 
 echo '<div class="actions">';

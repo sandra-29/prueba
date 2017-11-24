@@ -14,15 +14,15 @@ if (!$is_locked_attendance || api_is_platform_admin()) {
     echo '<div class="actions">';
     if ($action == 'calendar_add') {
         echo '<a href="index.php?'.api_get_cidreq().'&action=calendar_list&attendance_id='.$attendance_id.'">'.
-            Display::return_icon('back.png',get_lang('AttendanceCalendar'),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('back.png',get_lang('AttendanceCalendar'),array(),ICON_SIZE_MEDIUM).'</a>';
     } else {
         echo '<a href="index.php?'.api_get_cidreq().'&action=attendance_sheet_list&attendance_id='.$attendance_id.'">'.
-            Display::return_icon('back.png',get_lang('AttendanceSheet'),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('back.png',get_lang('AttendanceSheet'),array(),ICON_SIZE_MEDIUM).'</a>';
         if (api_is_allowed_to_edit()) {
             echo '<a href="index.php?'.api_get_cidreq().'&action=calendar_add&attendance_id='.$attendance_id.'">'.
-                Display::return_icon('add.png',get_lang('AddDateAndTime'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('add.png',get_lang('AddDateAndTime'),array(),ICON_SIZE_MEDIUM).'</a>';
             echo '<a onclick="javascript:if(!confirm(\''.get_lang('AreYouSureToDeleteAllDates').'\')) return false;" href="index.php?'.api_get_cidreq().'&action=calendar_all_delete&attendance_id='.$attendance_id.'">'.
-                Display::return_icon('clean.png',get_lang('CleanCalendar'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('clean.png',get_lang('CleanCalendar'),array(),ICON_SIZE_MEDIUM).'</a>';
         }
     }
     echo '</div>';
@@ -152,7 +152,7 @@ if (isset($action) && $action == 'calendar_add') {
                 echo Display::return_icon(
                     'lp_calendar_event.png',
                     get_lang('DateTime'),
-                        null,
+                        array(),
                         ICON_SIZE_MEDIUM
                 ).' '.substr($calendar['date_time'], 0, strlen($calendar['date_time'])- 3) .'&nbsp;';
 

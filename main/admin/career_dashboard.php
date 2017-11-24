@@ -54,11 +54,11 @@ $form->addButtonSearch(get_lang('Filter'));
 // action links
 echo '<div class="actions" style="margin-bottom:20px">';
     echo  '<a href="../admin/index.php">'.
-            Display::return_icon('back.png', get_lang('BackTo').' '.get_lang('PlatformAdmin'),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('back.png', get_lang('BackTo').' '.get_lang('PlatformAdmin'),array(),ICON_SIZE_MEDIUM).'</a>';
     echo '<a href="careers.php">'.
-            Display::return_icon('career.png',get_lang('Careers'),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('career.png',get_lang('Careers'),array(),ICON_SIZE_MEDIUM).'</a>';
     echo '<a href="promotions.php">'.
-            Display::return_icon('promotion.png',get_lang('Promotions'),'',ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('promotion.png',get_lang('Promotions'),array(),ICON_SIZE_MEDIUM).'</a>';
 echo '</div>';
 
 $form->display();

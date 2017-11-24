@@ -101,18 +101,18 @@ Display::display_header(null);
 
 echo '<div class="actions">';
 echo '<a href="'.api_get_path(WEB_CODE_PATH).'work/work_list_all.php?id='.$workId.'&'.api_get_cidreq().'">'.
-    Display::return_icon('back.png', get_lang('BackToWorksList'), '', ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('back.png', get_lang('BackToWorksList'), array(), ICON_SIZE_MEDIUM).'</a>';
 $output = '';
 if (!empty($workId)) {
     if (empty($_GET['list']) or Security::remove_XSS($_GET['list']) == 'with') {
         $output .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&id='.$workId.'&list=without">'.
-            Display::return_icon('exercice_uncheck.png', get_lang('ViewUsersWithoutTask'),'',ICON_SIZE_MEDIUM)."</a>";
+            Display::return_icon('exercice_uncheck.png', get_lang('ViewUsersWithoutTask'),array(),ICON_SIZE_MEDIUM)."</a>";
     } else {
         if (!isset($_GET['action']) || (isset($_GET['action']) && $_GET['action'] != 'send_mail')) {
             $output .= '<a href="'.api_get_self().'?'.api_get_cidreq().'&id='.$workId.'&list=without&action=send_mail&sec_token='.$token.'">'.
-                Display::return_icon('mail_send.png', get_lang('ReminderMessage'), '', ICON_SIZE_MEDIUM)."</a>";
+                Display::return_icon('mail_send.png', get_lang('ReminderMessage'), array(), ICON_SIZE_MEDIUM)."</a>";
         } else {
-            $output .= Display::return_icon('mail_send_na.png', get_lang('ReminderMessage'), '', ICON_SIZE_MEDIUM);
+            $output .= Display::return_icon('mail_send_na.png', get_lang('ReminderMessage'), array(), ICON_SIZE_MEDIUM);
         }
     }
 }

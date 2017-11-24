@@ -73,11 +73,11 @@ $extra_params['sortorder'] = 'desc';
 //With this function we can add actions to the jgrid
 $action_links = 'function action_formatter (cellvalue, options, rowObject) {
     return \''
-    .' <a href="add_users_to_usergroup.php?id=\'+options.rowId+\'">' . Display::return_icon('user_to_class.png', get_lang('SubscribeUsersToClass'), null, ICON_SIZE_MEDIUM) . '</a>'
-    .' <a href="add_courses_to_usergroup.php?id=\'+options.rowId+\'">' . Display::return_icon('course_to_class.png', get_lang('SubscribeClassToCourses'), null, ICON_SIZE_MEDIUM) . '</a>'
-    .' <a href="add_sessions_to_usergroup.php?id=\'+options.rowId+\'">' . Display::return_icon('sessions_to_class.png', get_lang('SubscribeClassToSessions'), null, ICON_SIZE_MEDIUM) . '</a>'
-    .' <a href="?action=edit&id=\'+options.rowId+\'">' . Display::return_icon('edit.png', get_lang('Edit'), null, ICON_SIZE_SMALL) . '</a>'
-    .' <a onclick="javascript:if(!confirm('."\'".addslashes(api_htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES))."\'".')) return false;"  href="?action=delete&id=\'+options.rowId+\'">' . Display::return_icon('delete.png', get_lang('Delete'), null, ICON_SIZE_SMALL) . '</a>\';
+    .' <a href="add_users_to_usergroup.php?id=\'+options.rowId+\'">' . Display::return_icon('user_to_class.png', get_lang('SubscribeUsersToClass'), array(), ICON_SIZE_MEDIUM) . '</a>'
+    .' <a href="add_courses_to_usergroup.php?id=\'+options.rowId+\'">' . Display::return_icon('course_to_class.png', get_lang('SubscribeClassToCourses'), array(), ICON_SIZE_MEDIUM) . '</a>'
+    .' <a href="add_sessions_to_usergroup.php?id=\'+options.rowId+\'">' . Display::return_icon('sessions_to_class.png', get_lang('SubscribeClassToSessions'), array(), ICON_SIZE_MEDIUM) . '</a>'
+    .' <a href="?action=edit&id=\'+options.rowId+\'">' . Display::return_icon('edit.png', get_lang('Edit'), array(), ICON_SIZE_SMALL) . '</a>'
+    .' <a onclick="javascript:if(!confirm('."\'".addslashes(api_htmlentities(get_lang("ConfirmYourChoice"),ENT_QUOTES))."\'".')) return false;"  href="?action=delete&id=\'+options.rowId+\'">' . Display::return_icon('delete.png', get_lang('Delete'), array(), ICON_SIZE_SMALL) . '</a>\';
 }';
 
 ?>
@@ -138,7 +138,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'add') {
     } else {
         echo '<div class="actions">';
         echo '<a href="'.api_get_self().'">'.
-                Display::return_icon('back.png',get_lang('Back'),'',ICON_SIZE_MEDIUM).'</a>';
+                Display::return_icon('back.png',get_lang('Back'),array(),ICON_SIZE_MEDIUM).'</a>';
         echo '</div>';
         $token = Security::get_token();
         $form->addElement('hidden', 'sec_token');
@@ -176,7 +176,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'add') {
         echo '<a href="'.api_get_self().'">'.Display::return_icon(
             'back.png',
             get_lang('Back'),
-            '',
+            array(),
             ICON_SIZE_MEDIUM
         ).'</a>';
         echo '</div>';

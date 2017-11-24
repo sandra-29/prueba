@@ -105,9 +105,9 @@ if (api_is_allowed_to_edit(null, true) ||
     if (!$is_locked_attendance || api_is_platform_admin()) {
 
         $actionsLeft = '<a style="float:left;" href="index.php?'.api_get_cidreq().'&action=calendar_list&attendance_id='.$attendance_id.'">'.
-            Display::return_icon('attendance_calendar.png', get_lang('AttendanceCalendar'), '', ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('attendance_calendar.png', get_lang('AttendanceCalendar'), array(), ICON_SIZE_MEDIUM).'</a>';
         $actionsLeft .= '<a id="pdf_export" style="float:left;"  href="index.php?'.api_get_cidreq().'&action=attendance_sheet_export_to_pdf&attendance_id='.$attendance_id.'&filter='.$default_filter.'&group_id='.$groupId.'">'.
-            Display::return_icon('pdf.png', get_lang('ExportToPDF'), '', ICON_SIZE_MEDIUM).'</a>';
+            Display::return_icon('pdf.png', get_lang('ExportToPDF'), array(), ICON_SIZE_MEDIUM).'</a>';
 
         $actionsRight = $form->returnForm();
         $toolbar = Display::toolbarAction('toolbar-attendance', array($actionsLeft, $actionsRight), 2, false);
@@ -297,7 +297,7 @@ if (api_is_allowed_to_edit(null, true) ||
                     }
                 } else {
                     $result  = '<th width="2000px"><span><a href="index.php?'.api_get_cidreq().'&action=calendar_list&attendance_id='.$attendance_id.'">';
-                    $result .= Display::return_icon('attendance_calendar.png',get_lang('AttendanceCalendar'),'',ICON_SIZE_MEDIUM).' '.get_lang('GoToAttendanceCalendar').'</a></span></th>';
+                    $result .= Display::return_icon('attendance_calendar.png',get_lang('AttendanceCalendar'),array(),ICON_SIZE_MEDIUM).' '.get_lang('GoToAttendanceCalendar').'</a></span></th>';
                 }
 
                 echo '<tr class="tableFloatingHeader row_odd" style="position: absolute; top: 0px; left: 0px; visibility: hidden; margin:0px;padding:0px">';

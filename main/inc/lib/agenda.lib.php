@@ -2569,7 +2569,7 @@ class Agenda
 
         $actionsLeft = '';
         $actionsLeft .= "<a href='".api_get_path(WEB_CODE_PATH)."calendar/agenda_js.php?type={$this->type}'>".
-            Display::return_icon('calendar.png', get_lang('Calendar'), '', ICON_SIZE_MEDIUM)."</a>";
+            Display::return_icon('calendar.png', get_lang('Calendar'), array(), ICON_SIZE_MEDIUM)."</a>";
 
         $courseCondition = '';
         if (!empty($courseInfo)) {
@@ -2577,7 +2577,7 @@ class Agenda
         }
 
         $actionsLeft .= "<a href='".api_get_path(WEB_CODE_PATH)."calendar/agenda_list.php?type={$this->type}&".$courseCondition."'>".
-            Display::return_icon('week.png', get_lang('AgendaList'), '', ICON_SIZE_MEDIUM)."</a>";
+            Display::return_icon('week.png', get_lang('AgendaList'), array(), ICON_SIZE_MEDIUM)."</a>";
 
         $form = '';
 
@@ -2587,12 +2587,12 @@ class Agenda
             GroupManager::is_tutor_of_group(api_get_user_id(), $groupIid))
         ) {
             $actionsLeft .= Display::url(
-                Display::return_icon('new_event.png', get_lang('AgendaAdd'), '', ICON_SIZE_MEDIUM),
+                Display::return_icon('new_event.png', get_lang('AgendaAdd'), array(), ICON_SIZE_MEDIUM),
                 api_get_path(WEB_CODE_PATH)."calendar/agenda.php?".api_get_cidreq()."&action=add&type=".$this->type
             );
 
             $actionsLeft .= Display::url(
-                Display::return_icon('import_calendar.png', get_lang('ICalFileImport'), '', ICON_SIZE_MEDIUM),
+                Display::return_icon('import_calendar.png', get_lang('ICalFileImport'), array(), ICON_SIZE_MEDIUM),
                 api_get_path(WEB_CODE_PATH)."calendar/agenda.php?".api_get_cidreq()."&action=importical&type=".$this->type
             );
 

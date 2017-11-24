@@ -601,7 +601,7 @@ function get_courses_list_by_user_id_based_in_exercises($user_id) {
 
 Display::display_header(get_lang('MoveUserStats'));
 echo  '<div class="actions">';
-echo '<a href="../admin/index.php">'.Display::return_icon('back.png', get_lang('BackTo').' '.get_lang('PlatformAdmin'),'',ICON_SIZE_MEDIUM).'</a>';
+echo '<a href="../admin/index.php">'.Display::return_icon('back.png', get_lang('BackTo').' '.get_lang('PlatformAdmin'),array(),ICON_SIZE_MEDIUM).'</a>';
 echo '</div>';
 echo Display::display_normal_message(get_lang('CompareUserResultsBetweenCoursesAndCoursesInASession'),false);
 

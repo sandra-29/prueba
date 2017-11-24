@@ -259,7 +259,7 @@ switch ($action) {
             if ($allowToEdit && (empty($_GET['origin']) or $_GET['origin'] !== 'learnpath')) {
                 $html .= '<div id="no-data-view">';
                 $html .= '<h3>'.get_lang('Announcements').'</h3>';
-                $html .= Display::return_icon('valves.png', '', array(), 64);
+                $html .= Display::return_icon('valves.png', array(), array(), 64);
                 $html .= '<div class="controls">';
                 $html .= Display::url(
                     get_lang('AddAnnouncement'),
@@ -604,16 +604,16 @@ if ($allowToEdit && (empty($_GET['origin']) || $_GET['origin'] !== 'learnpath')
 ) {
     if (in_array($action, array('add', 'modify', 'view'))) {
         $actionsLeft .= "<a href='".api_get_self()."?".api_get_cidreq()."'>".
-            Display::return_icon('back.png', get_lang('Back'), '', ICON_SIZE_MEDIUM)."</a>";
+            Display::return_icon('back.png', get_lang('Back'), array(), ICON_SIZE_MEDIUM)."</a>";
     } else {
         $actionsLeft .= "<a href='".api_get_self()."?".api_get_cidreq()."&action=add'>".
-            Display::return_icon('new_announce.png', get_lang('AddAnnouncement'), '', ICON_SIZE_MEDIUM)."</a>";
+            Display::return_icon('new_announce.png', get_lang('AddAnnouncement'), array(), ICON_SIZE_MEDIUM)."</a>";
     }
     $show_actions = true;
 } else {
     if (in_array($action, array('view'))) {
         $actionsLeft .= "<a href='".api_get_self()."?".api_get_cidreq()."'>".
-            Display::return_icon('back.png', get_lang('Back'), '', ICON_SIZE_MEDIUM)."</a>";
+            Display::return_icon('back.png', get_lang('Back'), array(), ICON_SIZE_MEDIUM)."</a>";
     }
 }
 
@@ -624,7 +624,7 @@ if ($allowToEdit) {
                 Display::return_icon(
                     'delete_announce.png',
                     get_lang('AnnouncementDeleteAll'),
-                    '',
+                    array(),
                     ICON_SIZE_MEDIUM
                 )."</a>";
         }

@@ -156,7 +156,7 @@ handle_forum_and_forumcategories();
 echo '<div class="actions">';
 echo '<span style="float:right;">'.search_link().'</span>';
 echo '<a href="viewforum.php?forum='.intval($_GET['forum']).'&'.$cidreq.'">'.
-    Display::return_icon('back.png',get_lang('BackToForum'),'',ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('back.png',get_lang('BackToForum'),array(),ICON_SIZE_MEDIUM).'</a>';
 echo '</div>';
 
 $threadData = getThreadInfo($threadId, $cId);

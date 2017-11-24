@@ -73,7 +73,7 @@ if (api_is_platform_admin()) {
         Display::return_icon(
             'export_csv.png',
             get_lang('ExportAsCSV'),
-            '',
+            array(),
             ICON_SIZE_MEDIUM
         ),
         api_get_self().'?user_id='.$userId.'&action=export'
@@ -82,7 +82,7 @@ if (api_is_platform_admin()) {
         Display::return_icon(
             'vcard.png',
             get_lang('UserInfo'),
-            '',
+            array(),
             ICON_SIZE_MEDIUM
         ),
         api_get_path(WEB_PATH).'main/social/vcard_export.php?userId='.$userId
@@ -507,7 +507,7 @@ Display::display_header($tool_name);
 
 echo '<div class="actions">
         <a href="'.api_get_path(WEB_CODE_PATH).'mySpace/myStudents.php?student='.intval($_GET['user_id']).'" title="'.get_lang('Reporting').'">'.
-        Display::return_icon('statistics.png', get_lang('Reporting'), '', ICON_SIZE_MEDIUM).'
+        Display::return_icon('statistics.png', get_lang('Reporting'), array(), ICON_SIZE_MEDIUM).'
         </a>
         '.$login_as_icon.'
         '.$editUser.'

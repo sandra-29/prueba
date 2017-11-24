@@ -170,9 +170,9 @@ Display::display_header($tool_name);
 
 // actions
 $actionsLeft = '<a href="dashboard_add_users_to_user.php?user='.$user_id.'">'.
-    Display::return_icon('add-user.png', get_lang('AssignUsers'), null, ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('add-user.png', get_lang('AssignUsers'), array(), ICON_SIZE_MEDIUM).'</a>';
 $actionsLeft .= '<a href="dashboard_add_sessions_to_user.php?user='.$user_id.'">'.
-    Display::return_icon('session-add.png', get_lang('AssignSessions'), null, ICON_SIZE_MEDIUM).'</a>';
+    Display::return_icon('session-add.png', get_lang('AssignSessions'),array(), ICON_SIZE_MEDIUM).'</a>';
 
 echo $html = Display::toolbarAction('toolbar-dashboard', array($actionsLeft));
 
